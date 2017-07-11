@@ -19,8 +19,8 @@ function outputCards(peopleArray) {
 
         console.log(peopleArray[i].title)
         container.innerHTML += `<person>
-         <header>${peopleArray[i].name} & ${peopleArray[i].title}</header>
-         <section>${peopleArray[i].bio} & <img src="${peopleArray[i].image}"> </img>[i].image}section
+         <header>${peopleArray[i].name}  ${peopleArray[i].title}</header>
+         <section>${peopleArray[i].bio}  <img src="${peopleArray[i].image}"> </img></section>
          <footer>${peopleArray[i].lifespan}</footer>
     	</person>`
     }

@@ -9,7 +9,6 @@ let array = [];
 
 function setArr() {
     array = JSON.parse(this.responseText);
-    console.log(array)
     outputCards(array);
 
 };
@@ -17,14 +16,13 @@ function setArr() {
 function outputCards(peopleArray) {
     for (i = 0; i < peopleArray.length; i++) {
 
-        console.log(peopleArray[i].title)
         container.innerHTML += `<div class="cards"><person>
          <header>${peopleArray[i].name}  ${peopleArray[i].title}</header>
          <section>${peopleArray[i].bio}  <img src="${peopleArray[i].image}"> </img></section>
          <footer>${peopleArray[i].lifespan.birth} & ${peopleArray[i].lifespan.death}</footer>
     	</person></div>`
     }
-    dottedBorder();
+    activateClickEvents();
 };
 
 
@@ -46,9 +44,24 @@ myRequest.send();
 
 
 
-function dottedBorder() {
-console.log("cards",cards);
+function activateClickEvents() {
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].addEventListener("click", function(e){
+            activateFocusEvent();
+            activateBorderEvent(e.currentTarget)
+
+        });
+    }
+}
+function activateFocusEvent() {
+input.focus();
+}
 
 
+function activateBorderEvent(clickedCard) {
+    console.log("cards", clickedCard);
 
 }
+
+
+

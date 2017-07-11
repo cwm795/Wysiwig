@@ -20,3 +20,9 @@ background-color: lightblue;
 
     width: 50%;
 }
+
+#input:focus {
+background-color: yellow;
+
+
+}

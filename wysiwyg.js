@@ -18,7 +18,7 @@ function outputCards(peopleArray) {
 
         container.innerHTML += `<div class="cards"><person>
          <header>${peopleArray[i].name}  ${peopleArray[i].title}</header>
-         <section>${peopleArray[i].bio}  <img src="${peopleArray[i].image}"> </img></section>
+         <section><span class="bio">${peopleArray[i].bio}</span>  <img src="${peopleArray[i].image}"> </img></section>
          <footer>${peopleArray[i].lifespan.birth} & ${peopleArray[i].lifespan.death}</footer>
     	</person></div>`
     }
@@ -47,6 +47,7 @@ myRequest.send();
 function activateClickEvents() {
     for (var i = 0; i < cards.length; i++) {
         cards[i].addEventListener("click", function(e) {
+            clearInputEvent()
             activateFocusEvent();
             deathCard()
             activateBorderEvent(e.currentTarget)
@@ -79,13 +80,26 @@ function deathCard() {
 
 function activateKeyEvent(clickedCard) {
     // console.log("activateKeyEvent", clickedCard)
-    input.addEventListener("keyup", function() {
-        mirrorText();
+    input.addEventListener("keyup", function(e) {
+        if (e.keyCode === 13) {
+            clearInputEvent()
+        } else {
+
+            mirrorText(clickedCard);
+        }
     });
 }
 
 
 function mirrorText(clickedCard) {
-console.log("mirrorText", mirrorText)
+    console.log("input", input.value);
+    if (clickedCard.classList.contains("selectedCard")) {
+        clickedCard.querySelector(".bio").innerHTML = input.value;
 
-};
+    }
+}
+
+function clearInputEvent() {
+
+    input.value = "";
+}

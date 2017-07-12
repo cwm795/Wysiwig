@@ -2,31 +2,31 @@ img {
     height: 200px;
     width: 100px;
 }
-
+/*even-numbered elements have a light-yellow background*/
 .cards:nth-of-type(2n+1) {
     background-color: lightyellow;
 
 }
 
 
-
+/*odd-numbered elements have a light-blue background*/
 .cards:nth-of-type(2n) {
 background-color: lightblue;
 }
 
-
+/*black border around the cards*/
 .cards {
 	border: solid black 2px;
 
     width: 50%;
 }
-
+/*every time you click on a card, the background changes to yellow on focus*/
 #input:focus {
 background-color: yellow;
 
 
 }
-
+/*when card is selected, the border is dotted lines*/
 .selectedCard {
 	border: dotted black 2px;
 }

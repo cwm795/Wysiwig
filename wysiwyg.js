@@ -1,5 +1,5 @@
 console.log("Hi");
-
+//The global variables
 let input = document.getElementById("input");
 let cards = document.getElementsByClassName("cards");
 let container = document.getElementById("container");
@@ -12,7 +12,7 @@ function setArr() {
     outputCards(array);
 
 };
-
+// for loop that spits the json file into the index
 function outputCards(peopleArray) {
     for (i = 0; i < peopleArray.length; i++) {
 
@@ -27,8 +27,7 @@ function outputCards(peopleArray) {
 
 
 
-
-
+// the function if XHR fails, you'll get an error message
 function XHRFail() {
 
 };
@@ -43,7 +42,7 @@ myRequest.open("GET", "items.json");
 myRequest.send();
 
 
-
+// if a different card is selected, the previous card is de-selected
 function activateClickEvents() {
     for (var i = 0; i < cards.length; i++) {
         cards[i].addEventListener("click", function(e) {
@@ -60,13 +59,13 @@ function activateFocusEvent() {
     input.focus();
 }
 
-
+//  once the card is clicked, the border will be a dotted line instead of solid
 function activateBorderEvent(clickedCard) {
     console.log("cards", clickedCard);
     clickedCard.classList.add("selectedCard");
     activateKeyEvent(clickedCard);
 }
-
+// de-selects previous card
 function deathCard() {
     console.log("cards", cards)
     for (var i = 0; i < cards.length; i++) {
@@ -77,7 +76,7 @@ function deathCard() {
         };
     }
 }
-
+// once you press 'Enter', the text in the input field will be removed
 function activateKeyEvent(clickedCard) {
     // console.log("activateKeyEvent", clickedCard)
     input.addEventListener("keyup", function(e) {
@@ -90,7 +89,7 @@ function activateKeyEvent(clickedCard) {
     });
 }
 
-
+// this allows the user to place text from the input field into the card
 function mirrorText(clickedCard) {
     console.log("input", input.value);
     if (clickedCard.classList.contains("selectedCard")) {
